@@ -7,8 +7,6 @@ import CreateEmployee from "./views/Employee/createEmployee";
 import CreateGodown from "./views/Godown/createGodown";
 import GodownDetails from "./views/Godown/godownDetails";
 import CreateMedicine from "./views/Medicine/createMedicine";
-import MedicineDetails from "./views/Medicine/medicineDetails";
-import MedicineDetails1 from "./views/Medicine/medicineDetails1";
 import VendorList from "./views/Vendor/vendorList";
 import CustomerDetails from "./views/Customer/customerDetails";
 import Dashboard from "./views/dashboard";
@@ -34,6 +32,7 @@ import PlaceOrderEmp from "./views/Orders/placeOrderEmp";
 import PlaceOrderGodown from "./views/Orders/placeOrderGodown";
 import PlaceOrderEmployee from "./views/Orders/placeOrderEmployee";
 import PendingOrders from "./views/Orders/pendingOrders";
+import Leave from "./views/Medicine/Leave"
 import PrimeReact from 'primereact/api';
 import "primereact/resources/primereact.css";
 import "primeicons/primeicons.css";
@@ -169,19 +168,19 @@ export default function App() {
       />
       /{">"}
       <Route
-        path="/medicineDetails"
+        path="/leave"
         element={
           <PrivateRoute>
-            <MedicineDetails />
+            <Leave />
           </PrivateRoute>
         }
       />
       /{">"}
       <Route
-        path="/medicineDetails1"
+        path="/Leave"
         element={
           <PrivateRoute>
-            <MedicineDetails1 />
+            <Leave />
           </PrivateRoute>
         }
       />

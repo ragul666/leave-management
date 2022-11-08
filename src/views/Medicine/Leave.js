@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 });
 const theme = createTheme();
 
-const MedicineDetails = () => {
+const Leave = () => {
   const classes = useStyles();
   const [searched, setSearched] = useState("");
   const baseURL = "http://localhost:3005/api/v1/shop/getMedicineFromShop";
@@ -91,7 +91,7 @@ const MedicineDetails = () => {
   }, []);
   // console.log("shop:",shopIdSend);
   function getMedicineList() {
-    if (role === "shopAdmin") {
+    if (role === "employee") {
       sendData = shopIdSend;
       URL = baseURL;
     } else if (role === "godownAdmin") {
@@ -128,7 +128,7 @@ const MedicineDetails = () => {
         }}
       >
         <Typography component="h1" variant="h5" sx={{ marginLeft: "40%" }}>
-          <b> Medicine Details</b>
+          <b> Leave Details</b>
         </Typography>
         <SearchBar
           style={{
@@ -138,7 +138,7 @@ const MedicineDetails = () => {
             border: "solid 2px",
             color: "red",
           }}
-          placeholder="Search Medicine Company"
+          placeholder="Search Leaves "
           value={searched}
           onChange={(searchVal) => requestSearch(searchVal)}
           onCancelSearch={() => cancelSearch()}
@@ -224,30 +224,11 @@ const MedicineDetails = () => {
           </Button>
         </Link>
 
-        {role === "superuser" && (
-          <Link to="/createMedicine">
-            <Button
-              type="submit"
-              variant="contained"
-              style={{ marginLeft: "10px", margin: "10px" }}
-            >
-              Add New Medicine
-            </Button>
-          </Link>
-        )}
-        {role !== "cus" && (
-          <Button
-            type="submit"
-            variant="contained"
-            style={{ marginLeft: "10px", margin: "10px", background: "grey" }}
-            onClick={handleNewUser}
-          >
-            Expired Medicines
-          </Button>
-        )}
+
+
       </Paper>
     </ThemeProvider>
   );
 };
 
-export default MedicineDetails;
+export default Leave;

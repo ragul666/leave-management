@@ -133,7 +133,7 @@ export default function CreateEmployee() {
               required
               fullWidth
               id="shopId"
-              label="Shop Id"
+              label="Emp Id"
               name="shopId"
               autoComplete="shopId"
               autoFocus

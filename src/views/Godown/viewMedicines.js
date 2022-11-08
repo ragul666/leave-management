@@ -235,7 +235,7 @@ const ViewMedicines = () => {
           </Link>
         )}
 
-        {role === "shopAdmin" ? (
+        {role === "employee" ? (
           <Link to="/placeOrder">
             <Button
               type="submit"

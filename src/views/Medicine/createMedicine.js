@@ -53,7 +53,7 @@ export default function CreateMedicine() {
       .catch((error) => setError(error));
     let code = postData.code;
     console.log(postData);
-    code == 200 ? navigate("/medicineDetails") : navigate("/createMedicine");
+    code == 200 ? navigate("/leave") : navigate("/createMedicine");
   };
 
   return (
@@ -189,7 +189,7 @@ export default function CreateMedicine() {
             </Button>
           </Box>
         </Box>
-        <Link to="/medicineDetails">
+        <Link to="/leave">
           <Button
             type="submit"
             variant="contained"

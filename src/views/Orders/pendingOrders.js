@@ -256,7 +256,7 @@ const OrderDetails = () => {
                   <TableCell align="right">{data.email}</TableCell>
                   <TableCell align="right">{data.shopId}</TableCell>
                   <TableCell align="right">{data.godownId}</TableCell>
-                  {/* {role === "shopAdmin" && (
+                  {/* {role === "employee" && (
                     <select type="submit" onChange={setGodownId}>
                       <option>1</option>
                       <option>2</option>
@@ -266,7 +266,7 @@ const OrderDetails = () => {
                       <option>6</option>
                     </select>
                   )} */}
-                  {role === "shopAdmin" && (
+                  {role === "employee" && (
                     <select
                       onChange={(e) => setGodownId(e.target.value || null)}
                       value={setGodownId || ""}
@@ -327,7 +327,7 @@ const OrderDetails = () => {
                         Shipped
                       </Button>
                     )}
-                    {(role === "shopAdmin" || role === "godownAdmin") && (
+                    {(role === "employee" || role === "godownAdmin") && (
                       <Button
                         onClick={() => handleApprove(data)}
                         style={{
@@ -340,7 +340,7 @@ const OrderDetails = () => {
                         Approve
                       </Button>
                     )}
-                    {(role === "shopAdmin" || role === "godownAdmin") && (
+                    {(role === "employee" || role === "godownAdmin") && (
                       <Button
                         onClick={() => handleReject(data)}
                         style={{

@@ -158,15 +158,16 @@ export default function CreateAdmin() {
               name="adminType"
               autoComplete="adminType"
               autoFocus
+              style={{ marginBottom: '2px' }}
             >
               <MenuItem name="adminType" value="godownAdmin">
-                Godown Admin
+                Admin
               </MenuItem>
-              <MenuItem name="adminType" value="shopAdmin">
-                Shop Admin
+              <MenuItem name="adminType" value="employee">
+                employee
               </MenuItem>
             </Select>
-            <TextField
+            {/* <TextField
               margin="normal"
               required
               fullWidth
@@ -175,7 +176,7 @@ export default function CreateAdmin() {
               name="id"
               autoComplete="id"
               autoFocus
-            />
+            /> */}
 
             <Button type="submit" fullWidth variant="contained">
               Create Admin
