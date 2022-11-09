@@ -77,8 +77,6 @@ const EmployeeDetails = () => {
   const [error, setError] = React.useState(null);
   const [count, setCount] = useState(0);
   let token = localStorage.getItem("authToken");
-  const role = localStorage.getItem("role");
-
   const config = {
     headers: { authToken: token },
   };
@@ -155,29 +153,24 @@ const EmployeeDetails = () => {
                   <TableCell align="right">{data.mobile}</TableCell>
                   <TableCell align="right">{data.role}</TableCell>
                   <TableCell align="right">
-                    {role === "superuser" && (
-                      <Button
-                        variant="contained"
-                        style={{
-                          color: "white",
-                          margin: "10px",
-                          background: "green",
-                        }}
-                        onClick={() => detail(data)}
-                      >
-                        Edit
-                      </Button>
-                    )}
-                    {role === "superuser" && (
-
-                      <Button
-                        variant="contained"
-                        style={{ color: "white", background: "red" }}
-                        onClick={() => handleDelete(data)}
-                      >
-                        Delete
-                      </Button>
-                    )}
+                    <Button
+                      variant="contained"
+                      style={{
+                        color: "white",
+                        margin: "10px",
+                        background: "green",
+                      }}
+                      onClick={() => detail(data)}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      variant="contained"
+                      style={{ color: "white", background: "red" }}
+                      onClick={() => handleDelete(data)}
+                    >
+                      Delete
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -199,19 +192,24 @@ const EmployeeDetails = () => {
             Back
           </Button>
         </Link>
-        {role === "superuser" && (
 
-          <Link to="/createEmployee">
-            <Button
-              type="submit"
-              variant="contained"
-              style={{ marginLeft: "10px", margin: "10px" }}
-            >
-              Add New Employee
-            </Button>
-          </Link>
-        )}
-       
+        <Link to="/createEmployee">
+          <Button
+            type="submit"
+            variant="contained"
+            style={{ marginLeft: "10px", margin: "10px" }}
+          >
+            Add New Employee
+          </Button>
+        </Link>
+        <Button
+          type="submit"
+          variant="contained"
+          style={{ marginLeft: "10px", margin: "10px", background: "grey" }}
+          onClick={handleNewUser}
+        >
+          Create Employee User
+        </Button>
       </Paper>
     </ThemeProvider>
   );

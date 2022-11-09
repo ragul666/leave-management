@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 });
 const theme = createTheme();
 
-const Leave = () => {
+const MedicineDetails = () => {
   const classes = useStyles();
   const [searched, setSearched] = useState("");
   const baseURL = "http://localhost:3005/api/v1/shop/getMedicineFromShop";
@@ -48,10 +48,9 @@ const Leave = () => {
     requestSearch(searched);
   };
   const handleDelete = (data) => {
-    console.log(data);
-    let id = data[0].medicineId;
+    let id = data.id;
     const data1 = { id };
-    console.log("medicine id", data1);
+    console.log(data1);
     axios
       .put(baseURL2, data1, config)
       .then((response) => {
@@ -62,7 +61,7 @@ const Leave = () => {
     setTimeout(() => {
       setCount((count) => count + 1);
     }, 1000);
-    // window.location.reload();
+    window.location.reload();
   };
   let navigate = useNavigate();
 
@@ -91,7 +90,7 @@ const Leave = () => {
   }, []);
   // console.log("shop:",shopIdSend);
   function getMedicineList() {
-    if (role === "employee") {
+    if (role === "shopAdmin") {
       sendData = shopIdSend;
       URL = baseURL;
     } else if (role === "godownAdmin") {
@@ -128,7 +127,7 @@ const Leave = () => {
         }}
       >
         <Typography component="h1" variant="h5" sx={{ marginLeft: "40%" }}>
-          <b> Leave Details</b>
+          <b> Medicine Details</b>
         </Typography>
         <SearchBar
           style={{
@@ -138,7 +137,7 @@ const Leave = () => {
             border: "solid 2px",
             color: "red",
           }}
-          placeholder="Search Leaves "
+          placeholder="Search Medicine Company"
           value={searched}
           onChange={(searchVal) => requestSearch(searchVal)}
           onCancelSearch={() => cancelSearch()}
@@ -171,37 +170,14 @@ const Leave = () => {
               {rows?.map((data) => (
                 <TableRow>
                   <TableCell component="th" scope="row">
-                    {data[0].medicineName}
+                    {data.medicineName}
                   </TableCell>
-                  <TableCell align="right">{data[0].manufactureDate}</TableCell>
-                  <TableCell align="right">{data[0].expiryDate}</TableCell>
-                  <TableCell align="right">{data[0].unitPrice}</TableCell>
-                  <TableCell align="right">{data[0].medicineType}</TableCell>
-                  <TableCell align="right">{data[0].company}</TableCell>
-                  <TableCell align="right">
-                    {role === "superuser" && (
-                      <>
-                        <Button
-                          variant="contained"
-                          style={{
-                            color: "white",
-                            margin: "10px",
-                            background: "green",
-                          }}
-                          onClick={() => detail(data)}
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          variant="contained"
-                          style={{ color: "white", background: "red" }}
-                          onClick={() => handleDelete(data)}
-                        >
-                          Delete
-                        </Button>{" "}
-                      </>
-                    )}
-                  </TableCell>
+                  <TableCell align="right">{data.manufactureDate}</TableCell>
+                  <TableCell align="right">{data.expiryDate}</TableCell>
+                  <TableCell align="right">{data.unitPrice}</TableCell>
+                  <TableCell align="right">{data.medicineType}</TableCell>
+                  <TableCell align="right">{data.company}</TableCell>
+                  <TableCell align="right"></TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -224,11 +200,35 @@ const Leave = () => {
           </Button>
         </Link>
 
+        {role !== "cus" && (
+          <Button
+            type="submit"
+            variant="contained"
+            style={{ marginLeft: "10px", margin: "10px", background: "grey" }}
+            onClick={handleNewUser}
+          >
+            Expired Medicines
+          </Button>
+        )}
 
-
+        {role === "cus" && (
+          <Link to="/addOrders">
+            <Button
+              type="submit"
+              variant="contained"
+              style={{
+                marginLeft: "10px",
+                margin: "10px",
+                background: "green ",
+              }}
+            >
+              Add New Order
+            </Button>
+          </Link>
+        )}
       </Paper>
     </ThemeProvider>
   );
 };
 
-export default Leave;
+export default MedicineDetails;

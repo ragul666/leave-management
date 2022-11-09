@@ -7,6 +7,8 @@ import CreateEmployee from "./views/Employee/createEmployee";
 import CreateGodown from "./views/Godown/createGodown";
 import GodownDetails from "./views/Godown/godownDetails";
 import CreateMedicine from "./views/Medicine/createMedicine";
+import MedicineDetails from "./views/Medicine/medicineDetails";
+import MedicineDetails1 from "./views/Medicine/medicineDetails1";
 import VendorList from "./views/Vendor/vendorList";
 import CustomerDetails from "./views/Customer/customerDetails";
 import Dashboard from "./views/dashboard";
@@ -32,12 +34,12 @@ import PlaceOrderEmp from "./views/Orders/placeOrderEmp";
 import PlaceOrderGodown from "./views/Orders/placeOrderGodown";
 import PlaceOrderEmployee from "./views/Orders/placeOrderEmployee";
 import PendingOrders from "./views/Orders/pendingOrders";
-import Leave from "./views/Medicine/Leave"
-import PrimeReact from 'primereact/api';
+import LeaveApply from "./views/Employee/leaveApply"
 import "primereact/resources/primereact.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "primereact/resources/themes/bootstrap4-dark-blue/theme.css";
+
 export default function App() {
   return (
     <Routes>
@@ -79,6 +81,14 @@ export default function App() {
         element={
           <PrivateRoute>
             <EditEmployee />
+          </PrivateRoute>
+        }
+      />
+       <Route
+        path="/leaveApply"
+        element={
+          <PrivateRoute>
+            <LeaveApply />
           </PrivateRoute>
         }
       />
@@ -168,19 +178,19 @@ export default function App() {
       />
       /{">"}
       <Route
-        path="/leave"
+        path="/medicineDetails"
         element={
           <PrivateRoute>
-            <Leave />
+            <MedicineDetails />
           </PrivateRoute>
         }
       />
       /{">"}
       <Route
-        path="/Leave"
+        path="/medicineDetails1"
         element={
           <PrivateRoute>
-            <Leave />
+            <MedicineDetails1 />
           </PrivateRoute>
         }
       />

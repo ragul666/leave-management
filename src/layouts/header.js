@@ -119,10 +119,12 @@ export default function PersistentDrawerLeft() {
     navigate("/customerDetails");
   };
   const handleMedicine = () => {
-    if (role === "superuser") {
-      navigate("/leave");
-    } else navigate("/Leave");
+
+    navigate("/medicineDetails");
   };
+  const handleLeaveApply = () => {
+    navigate("/leaveApply")
+  }
   const handleGodown = () => {
     navigate("/godownDetails");
   };
@@ -179,7 +181,7 @@ export default function PersistentDrawerLeft() {
                   marginLeft: "10px",
                 }}
               >
-                Leave Management
+                Inventory Management
               </h3>
               <h3 style={{ display: "flex", justifyContent: "space-between" }}>
                 Welcome {greetingName}{" "}
@@ -297,7 +299,7 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           )}
 
-          {(role === "superuser" || role === "employee") && (
+          {(role === "superuser" || role === "shopAdmin") && (
             <ListItem button onClick={handleEmployee}>
               <ListItemIcon>
                 <BadgeIcon
@@ -330,9 +332,35 @@ export default function PersistentDrawerLeft() {
               </span>
             </ListItemIcon>
           </ListItem> */}
-          {(role === "superuser") && (
 
-            <ListItem button onClick={handleMedicine}>
+          <ListItem button onClick={handleMedicine}>
+            <ListItemIcon>
+              <PeopleIcon
+                style={{
+                  borderRadius: "10px",
+                  marginTop: "10px",
+                  marginRight: "10px",
+                  color: "blue",
+                  marginLeft: "-5rem",
+                }}
+              />{" "}
+              <span
+                style={{
+                  paddingTop: "10px",
+                  borderRadius: "10px",
+                  paddingBottom: "10px",
+                  color: "black",
+                }}
+              >
+                Leave History
+              </span>
+            </ListItemIcon>
+          </ListItem>
+
+          {role === "employee" && (
+
+
+            <ListItem button onClick={handleLeaveApply}>
               <ListItemIcon>
                 <PeopleIcon
                   style={{
@@ -351,40 +379,13 @@ export default function PersistentDrawerLeft() {
                     color: "black",
                   }}
                 >
-                  Leave
+                  Leave Apply
                 </span>
               </ListItemIcon>
-            </ListItem>)}
+            </ListItem>
 
-          {(
-            role === "employee" ||
-            role === "godownAdmin") && (
-              <ListItem button onClick={handleGodown}>
-                <ListItemIcon>
-                  <FactoryIcon
-                    style={{
-                      borderRadius: "10px",
-                      marginTop: "10px",
-                      marginRight: "10px",
-                      color: "blue",
-                      marginLeft: "-5rem",
-                    }}
-                  />{" "}
-                  <span
-                    style={{
-                      paddingTop: "10px",
-                      borderRadius: "10px",
-                      paddingBottom: "10px",
-                      color: "black",
-                    }}
-                  >
-                    Apply Leave
-                  </span>
-                </ListItemIcon>
-              </ListItem>
-            )}
-
-
+          )}
+          {/* )} */}
           <Divider />
         </Drawer>
         <Main open={open}>

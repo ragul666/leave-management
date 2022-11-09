@@ -47,7 +47,7 @@ const ExpiredMedicine = () => {
   let navigate = useNavigate();
 
   const handleNewUser = () => {
-    navigate("/leave");
+    navigate("/medicineDetails");
   };
   const baseURL = "http://localhost:3005/api/v1/medicines/expired";
   const [postData, setPostData] = React.useState({});

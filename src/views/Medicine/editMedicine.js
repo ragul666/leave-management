@@ -59,7 +59,7 @@ export default function EditMedicine() {
       .catch((error) => setError(error));
     let code = postData.code;
     console.log(postData);
-    code == 200 ? navigate("/leave") : navigate("/editMedicine");
+    code == 200 ? navigate("/medicineDetails") : navigate("/editMedicine");
   };
 
   return (
@@ -155,12 +155,12 @@ export default function EditMedicine() {
               autoComplete="manufactureDate"
               autoFocus
               value={initialData.manufactureDate}
-            // onChange={(e) =>
-            //   setInitialData((prev) => ({
-            //     ...prev,
-            //     manufactureDate: e.target.value,
-            //   }))
-            // }
+              // onChange={(e) =>
+              //   setInitialData((prev) => ({
+              //     ...prev,
+              //     manufactureDate: e.target.value,
+              //   }))
+              // }
             />
 
             <p style={{ marginTop: "4px", marginBottom: "-14px" }}>
@@ -176,12 +176,12 @@ export default function EditMedicine() {
               autoComplete="expiryDate"
               autoFocus
               value={initialData.expiryDate}
-            // onChange={(e) =>
-            //   setInitialData((prev) => ({
-            //     ...prev,
-            //     expiryDate: e.target.value,
-            //   }))
-            // }
+              // onChange={(e) =>
+              //   setInitialData((prev) => ({
+              //     ...prev,
+              //     expiryDate: e.target.value,
+              //   }))
+              // }
             />
             <TextField
               type="tel"
@@ -232,7 +232,7 @@ export default function EditMedicine() {
             </Button>
           </Box>
         </Box>
-        <Link to="/leave">
+        <Link to="/medicineDetails">
           <Button
             type="submit"
             variant="contained"

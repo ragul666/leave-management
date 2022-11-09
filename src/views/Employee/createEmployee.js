@@ -23,7 +23,7 @@ export default function CreateEmployee() {
   const [postData, setPostData] = React.useState();
   const [error, setError] = React.useState(null);
   let navigate = useNavigate();
-
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -133,7 +133,7 @@ export default function CreateEmployee() {
               required
               fullWidth
               id="shopId"
-              label="Emp Id"
+              label="Shop Id"
               name="shopId"
               autoComplete="shopId"
               autoFocus
