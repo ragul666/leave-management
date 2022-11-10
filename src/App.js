@@ -2,51 +2,37 @@ import "./App.css";
 import React from "react";
 import Login from "./views/login";
 import Signup from "./views/signup";
+import EmployeeDisplay from "./views/Employee/employeeDisplay";
 import EmployeeDetails from "./views/Employee/employeeDetails";
+import EmployeeEdit from "./views/Employee/employeeEdit";
 import CreateEmployee from "./views/Employee/createEmployee";
 import CreateGodown from "./views/Godown/createGodown";
 import GodownDetails from "./views/Godown/godownDetails";
-import CreateMedicine from "./views/Medicine/createMedicine";
-import MedicineDetails from "./views/Medicine/medicineDetails";
-import MedicineDetails1 from "./views/Medicine/medicineDetails1";
 import VendorList from "./views/Vendor/vendorList";
-import CustomerDetails from "./views/Customer/customerDetails";
 import Dashboard from "./views/dashboard";
-import SignupVerify from "./views/signupVerify";
-import PurchaseHistory from "./views/Purchase/purchaseHistory";
 import CreateUser from "./views/User/createUser";
 import userDetails from "./views/User/userDetails";
-import ShopDetails from "./views/Shop/shopDetails";
-import CreateShop from "./views/Shop/createShop";
+
 import { Routes, Route } from "react-router-dom";
-import ExpiredMedicine from "./views/Medicine/expiredMedicine";
 import EditEmployee from "./views/Employee/editEmployee";
 import EditGodown from "./views/Godown/editGodown";
-import EditMedicine from "./views/Medicine/editMedicine";
 import PrivateRoute from "./PrivateRoute";
 import CreateAdmin from "./views/User/createAdmin";
 import ViewMedicines from "./views/Godown/viewMedicines";
 import AddGodownMedicine from "./views/Godown/addGodownMedicine";
-import OrderDetails from "./views/Orders/orderDetails";
-import AddOrder from "./views/Orders/addOrder";
-import PlaceOrder from "./views/Orders/placeOrder";
-import PlaceOrderEmp from "./views/Orders/placeOrderEmp";
-import PlaceOrderGodown from "./views/Orders/placeOrderGodown";
-import PlaceOrderEmployee from "./views/Orders/placeOrderEmployee";
-import PendingOrders from "./views/Orders/pendingOrders";
-import LeaveApply from "./views/Employee/leaveApply"
+
+
+import PrimeReact from 'primereact/api';
 import "primereact/resources/primereact.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "primereact/resources/themes/bootstrap4-dark-blue/theme.css";
-
 export default function App() {
   return (
     <Routes>
       (Login&SignUp)
       <Route path="/" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/signupVerify" element={<SignupVerify />} />
       (Dashboard)
       <Route
         path="/dashboard"
@@ -77,18 +63,19 @@ export default function App() {
       />
       /{">"}
       <Route
-        path="/editEmployee"
+        path="/employeeDisplay"
         element={
           <PrivateRoute>
-            <EditEmployee />
+            <EmployeeDisplay />
           </PrivateRoute>
         }
       />
-       <Route
-        path="/leaveApply"
+      /{">"}
+      <Route
+        path="/employeeEdit"
         element={
           <PrivateRoute>
-            <LeaveApply />
+            <EmployeeEdit />
           </PrivateRoute>
         }
       />
@@ -167,80 +154,13 @@ export default function App() {
         }
       />
       /{">"}
-      (Medicine)
-      <Route
-        path="/createMedicine"
-        element={
-          <PrivateRoute>
-            <CreateMedicine />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/medicineDetails"
-        element={
-          <PrivateRoute>
-            <MedicineDetails />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/medicineDetails1"
-        element={
-          <PrivateRoute>
-            <MedicineDetails1 />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/expiredMedicine"
-        element={
-          <PrivateRoute>
-            <ExpiredMedicine />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/editMedicine"
-        element={
-          <PrivateRoute>
-            <EditMedicine />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      (Shop)
-      <Route
-        path="/createShop"
-        element={
-          <PrivateRoute>
-            <CreateShop />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/shopDetails"
-        element={
-          <PrivateRoute>
-            <ShopDetails />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
+
+
+
+
+
       (Customer)
-      <Route
-        path="/customerDetails"
-        element={
-          <PrivateRoute>
-            <CustomerDetails />
-          </PrivateRoute>
-        }
-      />
+
       /{">"}
       (vendor)
       <Route
@@ -252,81 +172,7 @@ export default function App() {
         }
       />
       /{">"}
-      (purchaseHistory)
-      <Route
-        path="/purchaseHistory"
-        element={
-          <PrivateRoute>
-            <PurchaseHistory />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      (Orders)
-      <Route
-        path="/orderDetails"
-        element={
-          <PrivateRoute>
-            <OrderDetails />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/pendingOrders"
-        element={
-          <PrivateRoute>
-            <PendingOrders />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/placeOrder"
-        element={
-          <PrivateRoute>
-            <PlaceOrder />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/placeOrderEmp"
-        element={
-          <PrivateRoute>
-            <PlaceOrderEmp />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/placeOrderGodown"
-        element={
-          <PrivateRoute>
-            <PlaceOrderGodown />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      <Route
-        path="/placeOrderEmployee"
-        element={
-          <PrivateRoute>
-            <PlaceOrderEmployee />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
-      (purchaseHistory)
-      <Route
-        path="/addOrders"
-        element={
-          <PrivateRoute>
-            <AddOrder />
-          </PrivateRoute>
-        }
-      />
-      /{">"}
+
     </Routes>
   );
 }

@@ -15,6 +15,8 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import Header from './../../layouts/header'
+
 const theme = createTheme();
 const baseURL = "http://localhost:3005/api/v1/user/createAdmin";
 
@@ -72,6 +74,7 @@ export default function CreateAdmin() {
 
   return (
     <ThemeProvider theme={theme}>
+     <Header />
       <Container
         component="main"
         maxWidth="xs"
@@ -80,27 +83,28 @@ export default function CreateAdmin() {
           borderRadius: "10px",
           paddingBottom: "30px",
           maxHeight: "40rem",
+        
         }}
       >
+       
         {error && <h3 className="error">{error} </h3>}
         {success && <h3 className="error">{success} </h3>}
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 1,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             maxHeight: "40rem",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "red" }}>
+          <Avatar sx={{  bgcolor: "red" }}>
             <PeopleAltIcon />
           </Avatar>
           <Typography
             component="h1"
             variant="h5"
-            sx={{ color: "black", marginBottom: "-20px" }}
+            sx={{ color: "black", }}
           >
             Add Admin
           </Typography>
@@ -137,45 +141,8 @@ export default function CreateAdmin() {
               autoComplete="phone"
               autoFocus
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="hobby"
-              label="Hobby"
-              name="hobby"
-              autoComplete="hobby"
-              autoFocus
-            />
-            <InputLabel id="adminType">Admin Type</InputLabel>
-            <Select
-              defaultValue=""
-              labelId="adminType"
-              margin="normal"
-              required
-              fullWidth
-              id="adminType"
-              name="adminType"
-              autoComplete="adminType"
-              autoFocus
-            >
-              <MenuItem name="adminType" value="godownAdmin">
-                Godown Admin
-              </MenuItem>
-              <MenuItem name="adminType" value="shopAdmin">
-                Shop Admin
-              </MenuItem>
-            </Select>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="id"
-              label="Shop Id / Godown Id"
-              name="id"
-              autoComplete="id"
-              autoFocus
-            />
+
+
 
             <Button type="submit" fullWidth variant="contained">
               Create Admin

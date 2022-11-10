@@ -17,7 +17,7 @@ function Dashboard() {
       {" "}
       <Header />
       <div style={{ marginLeft: "40%" }}>
-        Welcome to the Dashboard of Inventory Management
+        Welcome to the Dashboard of Leave Management
         <ToastContainer
           position="top-center"
           autoClose={4000}
